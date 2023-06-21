@@ -18,7 +18,7 @@ export default function Home() {
             By{' '}
             <Image
               src="/vercel.svg"
-              alt="Vercel Logo"
+              alt="Vercel"
               className={styles.vercelLogo}
               width={100}
               height={24}
@@ -37,6 +37,10 @@ export default function Home() {
           height={37}
           priority
         />
+      </div>
+
+      <div className={styles.center}>
+        <h1> CONTENIDO NUEVO</h1>
       </div>
 
       <div className={styles.grid}>
