@@ -78,6 +78,7 @@ export default function Home() {
             Templates <span>-&gt;</span>
           </h2>
           <p>Explore the Next.js 13 playground.</p>
+        <p> Prueba de Cambios</p>
         </a>
 
         <a
