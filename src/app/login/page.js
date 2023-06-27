@@ -1,6 +1,10 @@
 export default function Home() {
     return (
-     <div>
+     <div style={{
+        display: "flex",
+        flexDirection:"column",
+        widt:"500px"
+     }}>
         <form>
             <input type="text" placeholder="INSERTE SU USUARIO">
 
