@@ -2,15 +2,15 @@ export default function Home() {
     return (
      <div>
         <form>
-            <input type="text">
+            <input type="text" placeholder="INSERTE SU USUARIO">
 
             </input>
 
-            <input type="password">
+            <input type="password" placeholder="INSERTE LA CONTRASEÑA">
                 
             </input>
 
-            <button action="submit"></button>
+            <button action="submit">BOTON DE ENVIAR</button>
 
         </form>
      </div>
