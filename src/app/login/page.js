@@ -1,20 +1,22 @@
-export default function Home() {
+export default function Login() {
     return (
      <div style={{
         display: "flex",
-        flexdirection:"column",
-        width:"500px"
+        flexDirection:"column",
+        width:"500px",
+        marginLeft:"30%",
+        marginTop:"20%"
      }}>
         <form>
-            <input type="text" placeholder="INSERTE SU USUARIO">
+            <input type="text" placeholder="User">
 
             </input> <br></br> <br></br>
 
-            <input type="password" placeholder="INSERTE LA CONTRASEÑA">
+            <input type="password" placeholder="Password">
                  
             </input> <br></br> <br></br>
  
-            <button action="submit">BOTON DE ENVIAR</button>
+            <button action="submit">Enviar Formulario</button>
 
         </form>
      </div>
