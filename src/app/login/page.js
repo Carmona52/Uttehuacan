@@ -1,20 +1,15 @@
+import "./login.css"
 export default function Login() {
     return (
-     <div style={{
-        display: "flex",
-        flexDirection:"column",
-        width:"500px",
-        marginLeft:"30%",
-        marginTop:"20%"
-     }}>
-        <form>
+     <div>
+        <form  className="container"> 
             <input type="text" placeholder="User">
 
-            </input> <br></br> <br></br>
+            </input> <br></br>
 
             <input type="password" placeholder="Password">
                  
-            </input> <br></br> <br></br>
+            </input> <br></br>
  
             <button action="submit">Enviar Formulario</button>
 
