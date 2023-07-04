@@ -1,8 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-const auth = getAuth();
-
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+function Login(params) {
 
 const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
@@ -16,3 +14,4 @@ createUserWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
     // ..
   });
+}
