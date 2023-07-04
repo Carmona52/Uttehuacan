@@ -1,4 +1,6 @@
-export default app; 
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth();
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -14,14 +16,3 @@ createUserWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
     // ..
   });
-
-  
-function goToDashboard(params) {
-  
-}  
-function login(email, password, callback) {
-  //Toda mi ejecucion 
-  callback()
-}
-
-login ("ejemplo@ejemplo.com", "pitudo23", )
