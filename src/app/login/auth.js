@@ -15,3 +15,6 @@ createUserWithEmailAndPassword(auth, email, password)
     // ..
   });
 }
+
+export {Login}
+ 
