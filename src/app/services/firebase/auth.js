@@ -1,7 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import app from "../services/firebase";
+import app from "../firebase";
 const auth = getAuth(app);
-function Login(params) {
+function login(params) {
 
 const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
@@ -17,5 +17,5 @@ createUserWithEmailAndPassword(auth, email, password)
   });
 }
 
-export {Login}
+export {login}
  
