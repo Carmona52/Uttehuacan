@@ -1,7 +1,7 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword,createUserWithEmailAndPassword } from "firebase/auth";
 import app from "../firebase";
 const auth = getAuth(app);
-function login(params) {
+function login() {
 
 const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
@@ -16,10 +16,26 @@ createUserWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
 
     console.log(errorCode,errorMessage);
+    
     // ..
   });
 }
 
+function register() {
+    const auth = getAuth();
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+    
+}
 
-export {login}
+export {login, register}
  
