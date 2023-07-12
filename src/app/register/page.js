@@ -1,13 +1,13 @@
 "use client"
 import React from "react"
 import "./login.css"
-import {login} from "../services/firebase/auth";
-
-export default function register(email, password) {
+import { register } from "../services/firebase/auth";
+export default function register(email, password, displayName) {
 
     const[state,setState] = React.useState({
         email:"",
-        password:""
+        password:"",
+        displayName:""
     });
 
     function onChange(event) {
@@ -24,11 +24,15 @@ export default function register(email, password) {
     }
 
     function onRegister() {
-        const email = state.email;
-        const password = state.password;
+        //const email = state.email;
+        //const password = state.password;
+        //const displayName = state.displayName;
 
-        login(email,password);
+        const args ={email, password, displayName}
+
+        register(args);
     }
+
     return (
      <div >
        <form onSubmit={onRegister} className="container">

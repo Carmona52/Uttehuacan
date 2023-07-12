@@ -4,30 +4,12 @@ import {doc, setDoc} from "firebase/firestore"
 import db from "./database";
 const auth = getAuth(app);
 
-function login(email, password) {
 
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user)
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-
-    console.log(errorCode,errorMessage);
-    
-    // ..
-  });
-}
 
 function register(params) {
-const {email, password, displayName} = params;
+  const params = {email, password, displayName};
   const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email, password)
 .then((userCredential) => {
   // Signed in 
   const user = userCredential.user;
@@ -49,5 +31,26 @@ createUserWithEmailAndPassword(auth, email, password)
 });
   
 }
+function login(email, password) {
+
+const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    console.log(errorCode,errorMessage);
+    
+    // ..
+  });
+}
+
+
 export {login, register}
  
