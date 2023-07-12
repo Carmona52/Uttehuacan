@@ -23,7 +23,7 @@ export default function register(email, password) {
         
     }
 
-    function onLogin() {
+    function onRegister() {
         const email = state.email;
         const password = state.password;
 
@@ -31,14 +31,26 @@ export default function register(email, password) {
     }
     return (
      <div >
-       <form onSubmit={onLogin} className="container">
+       <form onSubmit={onRegister} className="container">
             <input name="email" onChange={onChange} value={state.email} type="text" placeholder="User">
 
             </input> <br></br>
 
-            <input name="password" onChange={onChange} value={state.password} type="password" placeholder="Password">
-                 
+            <input name="password" 
+            onChange={onChange} 
+            value={state.password} 
+            type="password" 
+            placeholder="Password">
+            required
             </input> <br></br>
+
+            <input name="displayName">
+                onChange={onchange}
+                value={state.displayName}
+                placeholder="Tu Nombre"
+                type="text"
+                required
+            </input>
  
             <button action="submit">Enviar Formulario</button>
         </form>
