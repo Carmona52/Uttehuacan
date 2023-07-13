@@ -1,56 +1,56 @@
-import { getAuth, signInWithEmailAndPassword,createUserWithEmailAndPassword } from "firebase/auth";
-import app from "../firebase";
-import {doc, setDoc} from "firebase/firestore"
+import { getAuth,  createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth";
+import app from "./";
+import { doc, setDoc } from "firebase/firestore";
 import db from "./database";
+
 const auth = getAuth(app);
 
 
-
-function register(params) {
-  const params = {email, password, displayName};
-  const auth = getAuth();
-  createUserWithEmailAndPassword(auth, email, password)
-.then((userCredential) => {
-  // Signed in 
-  const user = userCredential.user;
-
-  setDoc(
-    doc(db, "profiles", user.uid),
-    {
-      email, 
-      uid: user.uid,
-      displayName
+function login(email,password){
+    signInWithEmailAndPassword(auth,email,password)
+    .then ((userCrential) =>{
+        //signed in
+        const user = userCrential.user;
+        console.log(user)
+        //...
+    })
+    .catch((error) =>{
+        const errorCode = error.code;
+        const errorMessage = error.errorMessage;
+        console.log(errorCode, errorMessage)
+    });
     }
-  )
-  // ...
-})
-.catch((error) => {
-  const errorCode = error.code;
-  const errorMessage = error.message;
-  // ..
-});
-  
-}
-function login(email, password) {
 
-const auth = getAuth();
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user)
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    function register (params) {
+        const {email, password, displayName} = params;
 
-    console.log(errorCode,errorMessage);
-    
-    // ..
-  });
-}
+        const auth = getAuth (app);
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredentiaL) =>{
+            //signed in
+            const user = userCredential.user;
+            console.log(userCredentiaL)
 
+            setDoc(
+                doc(db, "profiles", user.id),
+                {
+                    email,
+                    uid: user.uid,
+                    displayName
+                }
+            );
+            //...
 
-export {login, register}
- 
+        })
+        .catch ((error) =>{
+            const errorCode = error.code;
+            const errorMessage = error.errorMessage;
+            console.log(errorCode, errorMessage);
+            //..
+        });
+    }
+
+export{ login, register}
+
+//Collections and Documents
+

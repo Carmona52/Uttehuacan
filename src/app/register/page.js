@@ -1,64 +1,78 @@
-"use client"
+'use client'
 import React from "react"
-import "./login.css"
-import { register } from "../services/firebase/auth";
-export default function register(email, password, displayName) {
+import { register } from "../services/firebase/auth"
+import "./register.css"
 
-    const[state,setState] = React.useState({
-        email:"",
-        password:"",
-        displayName:""
-    });
+function Register () {
 
-    function onChange(event) {
-        
+    const [state, setState] = React.useState({
+        emai: "",
+        password: "",
+        displayName: ""
+    })
+
+    function onChange (event){
         const value = event.target.value;
         const name = event.target.name;
-        
+
+
         setState({
-            ...state, 
+            ...state,
             [name]: value
         })
-    
-        
     }
 
-    function onRegister() {
-        //const email = state.email;
-        //const password = state.password;
-        //const displayName = state.displayName;
+    function onRegister(event){
 
-        const args ={email, password, displayName}
+        event.preventDefault();
 
-        register(args);
+        const {email, password, displayName} = state;
+
+        const args = {
+            email,
+            password,
+            displayName
+        }
+
+        singup (args)
     }
 
-    return (
-     <div >
-       <form onSubmit={onRegister} className="container">
-            <input name="email" onChange={onChange} value={state.email} type="text" placeholder="User">
-
-            </input> <br></br>
-
-            <input name="password" 
+    return(
+    <div className="conteiner">
+        <form onSubmit={onRegister}>
+            <input 
             onChange={onChange} 
-            value={state.password} 
-            type="password" 
-            placeholder="Password">
+            name="email" 
+            type="email" 
+            placeholder="email" 
+            value={state.email}
             required
-            </input> <br></br>
+            /><br></br> <br></br>
+            
 
-            <input name="displayName">
-                onChange={onchange}
-                value={state.displayName}
-                placeholder="Tu Nombre"
-                type="text"
-                required
-            </input>
- 
-            <button action="submit">Enviar Formulario</button>
+            <input 
+            onChange={onChange} 
+            name="password" 
+            type="password" 
+            placeholder="password" 
+            value={state.password}
+            required
+            /> <br></br> <br></br>
+            
+
+            <input
+            name="displayName"
+            onChange={onChange}
+            value={state.displayName}
+            placeholder="Your Name"
+            type="Text"
+            /> <br></br> <br></br>
+
+            <button type="submit">Register</button>
         </form>
-     </div>
+    </div>
+        
     )
-  }
-  
+}
+
+export default register;

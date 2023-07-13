@@ -1,6 +1,7 @@
 export default function Home() {
   return (
-   <div>SOY PROFILE</div>
-  )
+    <div>
+      soy profile
+    </div>
+      )
 }
-v
