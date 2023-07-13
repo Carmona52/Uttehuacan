@@ -1,10 +1,9 @@
 'use client'
 import React from "react"
-import { register } from "../services/firebase/auth"
+import { singup } from "../services/firebase/auth"
 import "./register.css"
-import Stack from '@mui/material/Stack';
 
-function Register () {
+function register () {
 
     const [state, setState] = React.useState({
         emai: "",
@@ -39,7 +38,6 @@ function Register () {
     }
 
     return(
-        
     <div className="conteiner">
         <form onSubmit={onRegister}>
             <input 
@@ -49,7 +47,7 @@ function Register () {
             placeholder="email" 
             value={state.email}
             required
-            /><br></br> <br></br>
+            /> <br></br><br></br>
             
 
             <input 
@@ -59,7 +57,7 @@ function Register () {
             placeholder="password" 
             value={state.password}
             required
-            /> <br></br> <br></br>
+            /><br></br><br></br>
             
 
             <input
@@ -68,16 +66,9 @@ function Register () {
             value={state.displayName}
             placeholder="Your Name"
             type="Text"
-            /> <br></br> <br></br>
+            /><br></br><br></br>
 
             <button type="submit">Register</button>
-
-            <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap">
-  <Item>Item 1</Item>
-  <Item>Item 2</Item>
-  <Item>Long content</Item>
-</Stack>
-
         </form>
     </div>
         

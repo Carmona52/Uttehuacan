@@ -21,7 +21,7 @@ function login(email,password){
     });
     }
 
-    function register (params) {
+    function singup (params) {
         const {email, password, displayName} = params;
 
         const auth = getAuth (app);
@@ -50,7 +50,7 @@ function login(email,password){
         });
     }
 
-export{ login, register}
+export{ login, singup }
 
 //Collections and Documents
 
