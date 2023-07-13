@@ -2,11 +2,17 @@
 import React from "react"
 import { singup } from "../services/firebase/auth"
 import "./register.css"
+import Box from '@mui/material/Box';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
 
 function register () {
 
     const [state, setState] = React.useState({
-        emai: "",
+        email: "",
         password: "",
         displayName: ""
     })
@@ -28,11 +34,7 @@ function register () {
 
         const {email, password, displayName} = state;
 
-        const args = {
-            email,
-            password,
-            displayName
-        }
+        const args = {email,password,displayName}
 
         singup (args)
     }
@@ -71,8 +73,11 @@ function register () {
             <button type="submit">Register</button>
         </form>
     </div>
+
         
     )
+    
+
 }
 
 export default register;
